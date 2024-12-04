@@ -1,7 +1,7 @@
 <?php 
 session_start();
 require 'usuarios.php';
-
+$gimnasio = false;
 
 if(isset($_SESSION['username']) && isset($_SESSION['password'])&& isset($_SESSION['group'])){
     if($_SESSION['group'] == 'admin'){
@@ -36,14 +36,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <html>
     <body>
         <?php if($user->getGroup() == 'admin'){
-            
+            echo "<form method='POST'>
+            <input type='submit' name='cerrar' value='Cerrar gimnasio'>
+            </form>";
         }else if($user->getGroup() == 'profesor'){
             echo "<form method='POST'>
                     <label for='equipo'>Equipo: </label>
                     <select id='equipo' name='equipo'>
                         <option value='volley'>Volley</option>
                         <option value='futbol'>Futbol</option>
-                        <option value='carrera obstaculizada'>Carrera obstaculizada</option>
+                        <option value='carrera'>Carrera obstaculizada</option>
                     </select>
                     <input type='submit' name='organizar' value='Organizar'>
                 </form>";

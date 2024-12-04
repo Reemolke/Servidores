@@ -45,6 +45,13 @@ class Usuario{
         parent::__construct($username,$password,$group);
       }
       public function organizar($equipo){
+        if($equipo == 'futbol'){
+          echo "<img src='futbol.gif' style='float: right;'>";
+        }else if($equipo == 'carrera'){
+          echo "<img src='carrera.gif' style='float: right;'>";
+        }else{
+          echo "<img src='volley.gif' style='float: right;'>";
+        }
         echo "Organizando $equipo";
       }
     }
